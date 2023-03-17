@@ -1,13 +1,13 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from 'react';
+import Navbar from '../components/Navbar';
 
 function Header() {
-  return (
-    <div className='header'>
-          <a href="/">De Gruyter ISBN Search</a>
-          <Navbar/>
-    </div>
-  )
+	return (
+		<div className='header'>
+			<a href='/'>De Gruyter ISBN Search</a>
+			<Navbar />
+		</div>
+	);
 }
 
-export default Header
+export default Header;
