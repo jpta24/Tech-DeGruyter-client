@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;700&display=swap');
 
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .header {
   background-color: #000000;
   padding: 19px 0 19px 14px;
@@ -35,5 +40,31 @@
   line-height: 15px;
   letter-spacing: 0em;
   text-align: center;
+}
 
+.container {
+  display: flex;
+  flex-direction: row;
+  flex:1
+}
+
+.library {
+  background-color: #D8D8D8;
+  display: flex;
+  flex-direction: column;
+  width: 321px;
+  padding-top: 56px;
+  padding-left: 53px;
+}
+
+.isbn-number {
+  font-family: Merriweather;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0em;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
 }
