@@ -1,14 +1,21 @@
 import  books  from "../data/books.json";
+import {formatIsbn }from "../utils/functions";
 
-function Library() {
-    const formatIsbn = (isbn) =>{
-        return `${isbn.slice(0, 3)}-${isbn.slice(3, 4)}-${isbn.slice(4, 9)}-${isbn.slice(9, 12)}-${isbn.slice(12)}`;
-      }
-
+function Library({setBook}) {
+    
     return (
         <div className='library'>
             {books.books.map(book=>{
-                return <span className='isbn-number' key={book.isbn}><span>{formatIsbn(book.isbn)}</span><span style={{marginLeft:'30px'}}>{">"}</span></span>
+                return (
+                    <span 
+                        className='isbn-number' 
+                        key={book.isbn} 
+                        onClick={() =>{
+                            setBook(book)
+                        }}>
+                        <span>{formatIsbn(book.isbn)}</span>
+                        <span style={{marginLeft:'30px'}}>{">"}</span>
+                    </span>)
             })}
         </div>
   )
