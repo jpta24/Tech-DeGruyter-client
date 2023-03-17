@@ -31,7 +31,7 @@ export const formatAppendix = (num) => {
 	return result;
 };
 
-export const listenerResize =(setIsMobile)=>{
+export const listenerResize = (setIsMobile) => {
 	const handleResize = () => {
 		setIsMobile(window.innerWidth < 600);
 	};
@@ -41,4 +41,4 @@ export const listenerResize =(setIsMobile)=>{
 	return () => {
 		window.removeEventListener('resize', handleResize);
 	};
-}
+};

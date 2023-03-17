@@ -1,8 +1,14 @@
 import { formatIsbn, formatAppendix } from '../utils/functions';
 
-function Description({ book }) {
+function Description({ book, setBook, isMobile, setIsMobile }) {
 	return (
 		<div className='description'>
+			{isMobile && (
+				<span className='backBtn' onClick={() => setBook(null)}>
+					{`< Back`}
+				</span>
+			)}
+
 			<img
 				className='bookCover'
 				src={`/covers/${book.isbn}.jpg`}

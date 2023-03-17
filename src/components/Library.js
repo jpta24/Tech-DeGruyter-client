@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 
-import books from '../data/books.json';
 import { formatIsbn, listenerResize } from '../utils/functions';
 
-function Library({ setBook, book }) {
-	const classLibrary = book ? 'no-Library' : 'library';
-
-	const [isMobile, setIsMobile] = useState(false);
+function Library({ books, book, setBook, isMobile, setIsMobile }) {
+	const classLibrary = book && isMobile ? 'no-Library' : 'library';
 
 	useEffect(() => {
-		listenerResize(setIsMobile)
+		listenerResize(setIsMobile);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const numberBooks = books.books.length;
@@ -23,16 +21,16 @@ function Library({ setBook, book }) {
 
 	return (
 		<div className={classLibrary}>
-			{books.books.slice(0, sliceA).map((book) => {
+			{books.books.slice(0, sliceA).map((elemBook) => {
 				return (
 					<span
-						className='isbn-number'
-						key={book.isbn}
+						className={`isbn-number ${book && elemBook.isbn === book.isbn && 'isbn-active'}`}
+						key={elemBook.isbn}
 						onClick={() => {
-							setBook(book);
+							setBook(elemBook);
 						}}
 					>
-						<span>{formatIsbn(book.isbn)}</span>
+						<span>{formatIsbn(elemBook.isbn)}</span>
 						<span style={{ marginLeft: '30px' }}>{'>'}</span>
 					</span>
 				);
