@@ -30,7 +30,6 @@ function App() {
 						setBook={setBook}
 						book={book}
 						isMobile={isMobile}
-						setIsMobile={setIsMobile}
 					/>
 				)}
 			</div>

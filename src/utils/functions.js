@@ -1,8 +1,20 @@
-export const formatIsbn = (isbn) => {
-	return `${isbn.slice(0, 3)}-${isbn.slice(3, 4)}-${isbn.slice(
-		4,
-		9
-	)}-${isbn.slice(9, 12)}-${isbn.slice(12)}`;
+export const checkIsbn = (isbn) => {
+	const digits = isbn.substring(0, 12).split('');
+
+	const multipliedDigits = digits.map((digit, index) => {
+		const multiplier = index % 2 === 0 ? 1 : 3;
+		return digit * multiplier;
+	});
+
+	const sum = multipliedDigits.reduce((acc, curr) => acc + curr, 0);
+
+	const remainder = sum % 10;
+
+	const checkDigit = remainder === 0 ? 0 : 10 - remainder;
+
+	const lastDigitISBN = isbn[isbn.length - 1] * 1;
+
+	return checkDigit === lastDigitISBN;
 };
 
 export const formatAppendix = (num) => {
@@ -29,6 +41,13 @@ export const formatAppendix = (num) => {
 		}
 	}
 	return result;
+};
+
+export const formatIsbn = (isbn) => {
+	return `${isbn.slice(0, 3)}-${isbn.slice(3, 4)}-${isbn.slice(
+		4,
+		9
+	)}-${isbn.slice(9, 12)}-${isbn.slice(12)}`;
 };
 
 export const listenerResize = (setIsMobile) => {

@@ -7,7 +7,7 @@ function Library({ books, book, setBook, isMobile, setIsMobile }) {
 
 	useEffect(() => {
 		listenerResize(setIsMobile);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const numberBooks = books.books.length;
@@ -24,7 +24,9 @@ function Library({ books, book, setBook, isMobile, setIsMobile }) {
 			{books.books.slice(0, sliceA).map((elemBook) => {
 				return (
 					<span
-						className={`isbn-number ${book && elemBook.isbn === book.isbn && 'isbn-active'}`}
+						className={`isbn-number ${
+							book && elemBook.isbn === book.isbn && 'isbn-active'
+						}`}
 						key={elemBook.isbn}
 						onClick={() => {
 							setBook(elemBook);

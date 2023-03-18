@@ -88,7 +88,7 @@
 }
 
 .isbn-active {
-    color:#3F83C2
+	color: #3f83c2;
 }
 
 .description {
@@ -107,6 +107,10 @@
 	padding-top: 89px;
 	letter-spacing: 0em;
 	text-align: left;
+}
+
+.bookInformation h2 {
+	text-align: center;
 }
 
 .bookTitle {

@@ -1,6 +1,8 @@
-import { formatIsbn, formatAppendix } from '../utils/functions';
+import { formatIsbn, formatAppendix, checkIsbn } from '../utils/functions';
 
-function Description({ book, setBook, isMobile, setIsMobile }) {
+function Description({ book, setBook, isMobile }) {
+	const isIsbnValid = checkIsbn(book.isbn);
+
 	return (
 		<div className='description'>
 			{isMobile && (
@@ -11,15 +13,25 @@ function Description({ book, setBook, isMobile, setIsMobile }) {
 
 			<img
 				className='bookCover'
-				src={`/covers/${book.isbn}.jpg`}
+				src={`/covers/${isIsbnValid ? book.isbn : 'default'}.jpg`}
 				alt='cover'
 			></img>
 			<div className='bookInformation'>
-				<p className='bookTitle'>{book.title}</p>
-				<p className='bookData'>{`ISBN: ${formatIsbn(book.isbn)}`}</p>
-				<p className='bookData'>{`Appendix: ${formatAppendix(
-					book.appendixPage
-				)}`}</p>
+				{isIsbnValid ? (
+					<>
+						<p className='bookTitle'>{book.title}</p>
+						<p className='bookData'>{`ISBN: ${formatIsbn(book.isbn)}`}</p>
+						<p className='bookData'>{`Appendix: ${formatAppendix(
+							book.appendixPage
+						)}`}</p>
+					</>
+				) : (
+					<>
+						<h2 className='bookTitle'>
+							The ISBN number entered is invalid. Please check it and try again.
+						</h2>
+					</>
+				)}
 			</div>
 		</div>
 	);
