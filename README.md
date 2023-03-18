@@ -32,3 +32,22 @@ You can find my deployed project at [https://techdegruyter.netlify.app/]
 - Visual Studio Code: Code editor for developing web applications
 - Node.js: JavaScript runtime environment for running JavaScript on the server-side
 - NPM: Package manager for installing and managing dependencies in Node.js projects
+
+### EXERCISE 2
+
+The output of this code is that it displays all the console.log statements simultaneously, as the setTimeout is the same for all iterations (1000ms). To resolve the issue and obtain the desired output, we need to multiply the time (1000ms) for each iteration i, and we will get each console.log every second until it finish the whole loop.
+
+```
+function timer(i) {
+  setTimeout(function(){
+    console.log(i);
+  }, 1000 * i);
+}
+
+for (var i = 0; i < 10; i++) {
+  timer(i);
+}
+```
+
+
+here is link to CodePen to see it working: [https://codepen.io/jpta24/pen/oNPMxNy?editors=0012]
